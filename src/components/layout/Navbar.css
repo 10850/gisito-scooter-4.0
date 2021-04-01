@@ -3,6 +3,10 @@ nav ul {
     list-style: none;
 }
 
+#menu-liste li {
+    cursor: pointer;
+}
+
 #nav-logo {
     max-width: 70px;
     margin: auto;
@@ -75,54 +79,56 @@ nav ul {
 }
 
 /* USER LINKS */
+#signedin-links, 
+#signedout-links, 
+#admin-links {
+    display: flex;
+    flex-direction: row;
+}
+
 .user-links {
     margin-top: 0;
     margin-left: 0;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 70px;
     opacity: 0;
     visibility: hidden;
-    transition: top .3s;
     background-color: #0bd45e;
     color: white;
-    padding-left: 10px;
-    padding-right: 60px;
-    padding-bottom: 20px;
-    padding-top: 0px;
 }
 
 .user-links-active {
-    top: 50px;
     opacity: 1;
     visibility: visible;
 }
 
-#dropdown-list {
-    margin-top: 0;
-    margin-left: 0;
+.dropdown-list {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 70px;
     opacity: 0;
     visibility: hidden;
-    transition: top .3s;
-    background-color: #0bd45e;
+    transition: opacity .3s;
+    background-color: transparent;
     color: white;
-    padding-left: 10px;
-    padding-right: 60px;
-    padding-bottom: 20px;
-    padding-top: 0px;
 }
 
-#dropdown-list li {
+.dropdown-list li {
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
-#menu-liste #dropdown-opener-link:focus > #dropdown-list {
-    top: 50px;
+.dropdown-list-active li {
+    margin-bottom: 5px;
+    cursor:pointer;
+}
+
+.dropdown-list-active {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transition: opacity .3s;
+    background-color: transparent;
+    color: white;
     opacity: 1;
     visibility: visible;
 }
@@ -225,36 +231,37 @@ nav ul {
         outline: none;
         border: 1px black solid;
         border-radius: 5px;
-        padding: 0px 0;
+        padding: 12px 0;
         padding-left: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
-    #dropdown-list {
-        margin-top: 0;
-        margin-left: 0;
+    .dropdown-list {
         position: absolute;
         display: flex;
         flex-direction: column;
-        top: 70px;
         opacity: 0;
         visibility: hidden;
         transition: top .3s;
         background-color: #0bd45e;
         color: white;
-        padding-left: 10px;
-        padding-right: 60px;
-        padding-bottom: 20px;
-        padding-top: 0px;
+        top: 70px;
     }
-
-    #dropdown-list li {
-        margin-bottom: 5px;
-    }
-
-    #menu-liste #dropdown-opener-link:hover > #dropdown-list {
-        top: 50px;
+    
+    .dropdown-list-active {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        transition: top .3s;
+        background-color: #0bd45e;
+        color: white;
         opacity: 1;
+        top: 50px;
         visibility: visible;
+        padding-left: 10px;
+        padding-right: 50px;
+        padding-bottom: 10px;
     }
 
 

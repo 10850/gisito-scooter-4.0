@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../layout/Navbar.css';
+import '../layout/Navbar.css'
 
 const SignedInLinks = () => {
 

@@ -9,6 +9,7 @@ import AdminLinks from './AdminLinks';
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [userLinks, setUserLinks] = useState(false);
+    const [dropdown, setDropdown] = useState(false);
 
     function handleBurgermenu() {
         setMenuOpen(!menuOpen)
@@ -18,6 +19,11 @@ const Navbar = () => {
     function handleUserLinks() {
         setUserLinks(!userLinks)
         console.log(userLinks)
+    }
+
+    function handleDropdown() {
+        setDropdown(!dropdown)
+        console.log(dropdown)
     }
 
     return (
@@ -34,7 +40,7 @@ const Navbar = () => {
                 <ul>
                     <li onClick={handleUserLinks}>
                         Konto
-                        <div className={userLinks ? 'user-links' : 'user-links-active'}>
+                        <div className={userLinks ? 'user-links-active' : 'user-links'}>
                             <SignedInLinks onClick={handleUserLinks} />
                             <SignedOutLinks onClick={handleUserLinks} />
                             <AdminLinks onClick={handleUserLinks} />
@@ -53,20 +59,20 @@ const Navbar = () => {
                             Komplette
                         </Link>
                     </li>
-                    <li className="nav-link" id="dropdown-opener-link">
+                    <li className="nav-link" id="dropdown-opener-link" onClick={handleDropdown}>
                             Dele
-                        <ul id="dropdown-list">
-                            <li className="dropdown-link" onClick={handleBurgermenu}>
+                        <ul className={dropdown ? 'dropdown-list-active' : 'dropdown-list'}>
+                            <li className="dropdown-link" onClick={handleBurgermenu, handleDropdown}>
                                 <Link to="/bars">
                                     Bars
                                 </Link>
                             </li>
-                            <li className="dropdown-link" onClick={handleBurgermenu}>
+                            <li className="dropdown-link" onClick={handleBurgermenu, handleDropdown}>
                                 <Link to="/decks">
                                     Decks
                                 </Link>
                             </li>
-                            <li className="dropdown-link" onClick={handleBurgermenu}>
+                            <li className="dropdown-link" onClick={handleBurgermenu, handleDropdown}>
                                 <Link to="/hjul">
                                     Hjul
                                 </Link>
