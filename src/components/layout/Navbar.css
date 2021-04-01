@@ -74,6 +74,60 @@ nav ul {
     padding-left: 5px;
 }
 
+/* USER LINKS */
+.user-links {
+    margin-top: 0;
+    margin-left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+    background-color: #0bd45e;
+    color: white;
+    padding-left: 10px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+.user-links-active {
+    top: 50px;
+    opacity: 1;
+    visibility: visible;
+}
+
+#dropdown-list {
+    margin-top: 0;
+    margin-left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+    background-color: #0bd45e;
+    color: white;
+    padding-left: 10px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+#dropdown-list li {
+    margin-bottom: 5px;
+}
+
+#menu-liste #dropdown-opener-link:focus > #dropdown-list {
+    top: 50px;
+    opacity: 1;
+    visibility: visible;
+}
+
+
 /* GRID */
 #logo-link {
     grid-area: logo-link;

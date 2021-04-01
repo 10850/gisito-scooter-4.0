@@ -2,13 +2,22 @@ import { NavLink, Link } from 'react-router-dom'
 import '../layout/Navbar.css';
 import logo from  '../../icons/logo.svg';
 import { useState } from 'react';
+import SignedInLinks from './SignedInLinks';
+import SignedOutLinks from './SignedOutLinks';
+import AdminLinks from './AdminLinks';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [userLinks, setUserLinks] = useState(false);
 
     function handleBurgermenu() {
         setMenuOpen(!menuOpen)
         console.log(menuOpen)
+    }
+
+    function handleUserLinks() {
+        setUserLinks(!userLinks)
+        console.log(userLinks)
     }
 
     return (
@@ -23,8 +32,13 @@ const Navbar = () => {
             </button>
             <div id="user-tools">
                 <ul>
-                    <li>
+                    <li onClick={handleUserLinks}>
                         Konto
+                        <div className={userLinks ? 'user-links' : 'user-links-active'}>
+                            <SignedInLinks onClick={handleUserLinks} />
+                            <SignedOutLinks onClick={handleUserLinks} />
+                            <AdminLinks onClick={handleUserLinks} />
+                        </div>
                     </li>
                     <li>
                         Kurv
@@ -34,27 +48,25 @@ const Navbar = () => {
             <input id="searchbar" type="text" placeholder="Search.."></input>
             <div className={menuOpen ? 'mobil-menu-container-active' : 'mobil-menu-container'}>
                 <ul id="menu-liste">
-                    <li className="nav-link">
+                    <li className="nav-link" onClick={handleBurgermenu}>
                         <Link to="/komplette">
                             Komplette
                         </Link>
                     </li>
                     <li className="nav-link" id="dropdown-opener-link">
-                        <Link to="/dele">
                             Dele
-                        </Link>
                         <ul id="dropdown-list">
-                            <li className="dropdown-link">
+                            <li className="dropdown-link" onClick={handleBurgermenu}>
                                 <Link to="/bars">
                                     Bars
                                 </Link>
                             </li>
-                            <li className="dropdown-link">
+                            <li className="dropdown-link" onClick={handleBurgermenu}>
                                 <Link to="/decks">
                                     Decks
                                 </Link>
                             </li>
-                            <li className="dropdown-link">
+                            <li className="dropdown-link" onClick={handleBurgermenu}>
                                 <Link to="/hjul">
                                     Hjul
                                 </Link>
