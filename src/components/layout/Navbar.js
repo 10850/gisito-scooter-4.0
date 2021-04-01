@@ -5,8 +5,11 @@ import { useState } from 'react';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 import AdminLinks from './AdminLinks';
+import { useAuth } from "../auth/AuthContext"
+
 
 const Navbar = () => {
+    const { currentUser } = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
     const [userLinks, setUserLinks] = useState(false);
     const [dropdown, setDropdown] = useState(false);
@@ -41,9 +44,9 @@ const Navbar = () => {
                     <li onClick={handleUserLinks}>
                         Konto
                         <div className={userLinks ? 'user-links-active' : 'user-links'}>
-                            <SignedInLinks onClick={handleUserLinks} />
-                            <SignedOutLinks onClick={handleUserLinks} />
-                            <AdminLinks onClick={handleUserLinks} />
+                            {currentUser && currentUser.email != "drescherrijna@gmail.com" && <SignedInLinks onClick={handleUserLinks} />}
+                            {!currentUser && <SignedOutLinks onClick={handleUserLinks} />}
+                            {currentUser && currentUser.email === "drescherrijna@gmail.com" && <AdminLinks onClick={handleUserLinks} />}
                         </div>
                     </li>
                     <li>
