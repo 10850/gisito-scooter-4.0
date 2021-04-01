@@ -4,20 +4,11 @@ import logo from  '../../icons/logo.svg';
 import { useState } from 'react';
 
 const Navbar = () => {
-    const menuContainer = document.getElementById("mobil-menu-container");
     const [menuOpen, setMenuOpen] = useState(false);
 
     function handleBurgermenu() {
-        console.log(menuOpen);
-        if (menuOpen == false){
-            menuContainer.style.left = 0;
-            setMenuOpen(true);
-            console.log(menuOpen);
-        } else {
-            menuContainer.style.left = -100 + "%";
-            setMenuOpen(false)
-            console.log(menuOpen);
-        }
+        setMenuOpen(!menuOpen)
+        console.log(menuOpen)
     }
 
     return (
@@ -41,7 +32,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <input id="searchbar" type="text" placeholder="Search.."></input>
-            <div id="mobil-menu-container">
+            <div className={menuOpen ? 'mobil-menu-container-active' : 'mobil-menu-container'}>
                 <ul id="menu-liste">
                     <li className="nav-link">
                         <Link to="/komplette">
