@@ -18,7 +18,7 @@ nav ul {
 }
 
 #nav-logo {
-    max-width: 70px;
+    max-width: 300px;
     margin: auto;
 }
 
@@ -53,7 +53,7 @@ nav ul {
 }
 
 .mobil-menu-container {
-    background-color:#0bd45e;
+    background-color:#00A14B;
     height: 100vh;
     width: 80%;
     z-index: 99;
@@ -68,7 +68,7 @@ nav ul {
 .mobil-menu-container-active {
     left: 0%;
     transition: all 0.5s ease;
-    background-color:#0bd45e;
+    background-color:#00A14B;
     height: 100vh;
     width: 80%;
     z-index: 99;
@@ -114,7 +114,7 @@ nav ul {
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    background-color: #0bd45e;
+    background-color: #00A14B;
     color: white;
     z-index: 99;
 }
@@ -125,9 +125,10 @@ nav ul {
     margin-top: 0;
     margin-left: -40px;
     position: absolute;
-    background-color: #0bd45e;
+    background-color: #00A14B;
     color: white;
     z-index: 99;
+    margin-top: 3px;
 }
 
 .user-links-active #signedin-links a,
@@ -157,11 +158,11 @@ nav ul {
 }
 
 .user-links #admin-links #add-product {
-    background-color: dodgerblue;
+    background-color: #1C75BC;
 }
 
 .user-links-active #admin-links #add-product {
-    background-color: dodgerblue;
+    background-color: #1C75BC;
 }
 
 
@@ -249,7 +250,7 @@ nav ul {
     }
 
     .mobil-menu-container {
-        background-color: #0bd45e;
+        background-color: #00A14B;
         color: white;
         height: auto;
         width: 100%;
@@ -310,7 +311,7 @@ nav ul {
         opacity: 0;
         visibility: hidden;
         transition: top .3s;
-        background-color: #0bd45e;
+        background-color: #00A14B;
         color: white;
         top: 70px;
     }
@@ -320,7 +321,7 @@ nav ul {
         display: flex;
         flex-direction: column;
         transition: top .3s;
-        background-color: #0bd45e;
+        background-color: #00A14B;
         color: white;
         opacity: 1;
         top: 50px;
@@ -330,6 +331,9 @@ nav ul {
         padding-bottom: 10px;
     }
 
+    #logo-link img {
+        max-width: 300px;
+    }
 
     /* GRID */
     #logo-link {

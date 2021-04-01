@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* MOBIL */
+/* OPRET BRUGER */
+.OpretBruger-container {
+    margin: 0 2em;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form input {
+    margin-bottom: 2em;
+    padding: 5px 10px;
+}
+
+.auth-form label {
+    margin-bottom: 3px;
+}
+
+.auth-link {
+    margin: 20px auto;
+}
+
+button {
+    outline: none;
+    border: none;
+    background-color: #1C75BC;
+    color: white;
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+button:active {
+    background-color: dodgerblue;
+}
+
+/* LOG IND */
+.logind-container {
+    margin: 0 2em;
+}
+
+/* PROFIL */
+#profil-container {
+    margin: 0 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+#profil-container h2 {
+    margin-top: 1em;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .OpretBruger-container {
+        margin: 0 35%;
+    }
+    
+    .logind-container {
+        margin: 0 35%;
+    }
+
+    #profil-container {
+        margin: 0 35%;
+    }
+}
