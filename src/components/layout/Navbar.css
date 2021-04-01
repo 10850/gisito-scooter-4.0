@@ -1,0 +1,230 @@
+/* MOBIL */
+nav ul {
+    list-style: none;
+}
+
+#nav-logo {
+    max-width: 70px;
+    margin: auto;
+}
+
+#menu-btn {
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    color: black;
+    background-color: transparent;
+    outline: none;
+    border:none;
+}
+
+#menu-btn div {
+    background-color: black;
+    width: 30px;
+    margin: 4px 0;
+    height: 4px;
+    border-radius: 5px;
+}
+
+#global-menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#mobil-menu-container {
+    background-color:white;
+    height: 100vh;
+    width: 80%;
+    z-index: 99;
+    position: absolute;
+    left: -100%;
+    transition: .4s;
+    margin-top: 50px;
+    margin-left: -7px;
+    margin-right: -7px;
+}
+
+.nav-link {
+    margin-top: 20px;
+}
+
+#user-tools ul {
+    display: flex;
+    flex-direction: row;
+}
+
+#user-tools ul li:nth-child(1) {
+    margin-right: 12px;
+}
+
+#searchbar {
+    border: none;
+    outline: none;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 8px 0;
+    padding-left: 5px;
+}
+
+/* GRID */
+#logo-link {
+    grid-area: logo-link;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+#menu-btn {
+    grid-area: burgermenu;
+}
+
+#user-tools {
+    grid-area: user-tools;
+}
+
+#searchbar {
+    grid-area: searchbar;
+}
+
+#global-menu {
+    margin: 0 7px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+                        "burgermenu logo-link user-tools"
+                        "searchbar searchbar searchbar";
+}
+
+
+/* DESKTOP */
+@media only screen and (min-width: 768px) {
+    #nav-logo {
+        max-width: 90px;
+        margin: auto;
+        margin-left: 10px;
+    }
+
+    #menu-btn {
+        display: none;
+    }
+
+    #global-menu a {
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    #mobil-menu-container {
+        background-color: #0bd45e;
+        color: white;
+        height: auto;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+        left: 0;
+        margin: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #menu-liste a {
+        color: white;
+    }
+
+    #menu-liste {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: auto;
+        margin-top: auto;
+        line-height: 50px;
+    }
+
+    #menu-liste .nav-link {
+        margin-right: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .nav-link {
+        margin-top: 20px;
+    }
+
+    #user-tools ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #user-tools ul li:nth-child(1) {
+        margin-right: 12px;
+    }
+
+    #searchbar {
+        border: none;
+        outline: none;
+        border: 1px black solid;
+        border-radius: 5px;
+        padding: 0px 0;
+        padding-left: 5px;
+    }
+
+    #dropdown-list {
+        margin-top: 0;
+        margin-left: 0;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 70px;
+        opacity: 0;
+        visibility: hidden;
+        transition: top .3s;
+        background-color: #0bd45e;
+        color: white;
+        padding-left: 10px;
+        padding-right: 60px;
+        padding-bottom: 20px;
+        padding-top: 0px;
+    }
+
+    #dropdown-list li {
+        margin-bottom: 5px;
+    }
+
+    #menu-liste #dropdown-opener-link:hover > #dropdown-list {
+        top: 50px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* GRID */
+    #logo-link {
+        grid-area: logo-link;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #user-tools {
+        grid-area: user-tools;
+    }
+
+    #searchbar {
+        grid-area: searchbar;
+    }
+
+    #mobil-menu-container {
+        grid-area: menu-liste;
+    }
+
+    #global-menu {
+        margin: 0px;
+        margin-top: 15px;
+        row-gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+                            "logo-link searchbar user-tools"
+                            "menu-liste menu-liste menu-liste";
+    }
+}
