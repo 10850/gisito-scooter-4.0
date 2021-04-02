@@ -1,6 +1,56 @@
+import { useState } from "react";
+import { db, productStorage } from "../../firebase/firebase";
 import "../forms/addproduct.css";
 
 const AddWheel = () => {
+    const [wheelData, setWheelData] = useState([])
+    const [files, setFiles] = useState([])
+    const [error, setError] = useState(null)
+
+
+    const dataChange = (e) => {
+        if (e.target.type === "number") {
+            console.log("number")
+            setWheelData({
+              [e.target.name]: parseInt(e.target.value)
+            }) 
+        } else {
+            setWheelData([...wheelData, {[e.target.name]: e.target.value}])
+        }
+    }
+
+    const handleFile = (event) => {
+        const target = event.target;
+        const value = target.files[0];
+        const name = target.name;
+
+        console.log(value);
+
+        const storageRef = productStorage.ref(value.name);
+
+        storageRef.put(value).on('state_changed', (snap) => {
+            console.log(snap)
+        }, (err) => {
+            console.log(err)
+        }, async () => {
+            const url = await storageRef.getDownloadURL();
+            console.log(url)
+            setFiles([...files, {[name]: url}])
+            console.log(files)
+        });
+    }
+
+
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        db.collection("wheels").add({
+            wheelData,
+            files
+        })
+    }
+
     return (
         <>
             <h3>
@@ -10,81 +60,81 @@ const AddWheel = () => {
                 <label>
                     Kategori
                 </label>
-                <input type="text" placeholder="bars" />
+                <input name="category" type="text" placeholder="hjul" />
 
                 <label>
                     Brand logo
                 </label>
-                <input type="file" />
+                <input name="brand" type="file" />
 
                 <label>
                     Produktnavn
                 </label>
-                <input type="text" />
+                <input name="product_name" type="text" />
 
                 <label>
                     Pris
                 </label>
-                <input type="number" step="any" />
+                <input name="price" type="number" step="any" />
 
                 <label>
                     Produktbilled
                 </label>
-                <input type="file" />
+                <input name="product_img" type="file" />
 
                 <label>
                     Beskrivelse
                 </label>
-                <textarea className="description">
+                <textarea name="description" className="description">
 
                 </textarea>
 
                 <label>
                     Tech features
                 </label>
-                <textarea className="tech-feature">
+                <textarea name="tech_feature" className="tech-feature">
                     
                 </textarea>
 
                 <label>
                     Hjuldiameter
                 </label>
-                <input type="number" step="any" />
+                <input name="wheel_diameter" type="number" step="any" />
 
                 <label>
                     Hjul nav bredde
                 </label>
-                <input type="number" step="any" />
+                <input name="wheel_width" type="number" step="any" />
 
                 <label>
                     Hjul hårdhed
                 </label>
-                <input type="number" step="any" />
+                <input name="wheel_hardness" type="number" step="any" />
 
                 <label>
                     Hjul pr. pakke
                 </label>
-                <input type="text" />
+                <input name="wheels_pr_pack" type="text" />
 
                 <label>
                     Vægt
                 </label>
-                <input type="number" step="any" />
+                <input name="weight" type="number" step="any" />
 
                 <label>
                     Kerne design
                 </label>
-                <input type="text" />
+                <input name="core_design" type="text" />
                     
                 <label>
                     Aksel diameter
                 </label>
-                <input type="number" step="any" />
+                <input name="aksel" type="number" step="any" />
 
                 <label>
                     Kuglelejer
                 </label>
-                <input type="text" />
+                <input name="bearings" type="text" />
 
                 <button>
                     Tilføj

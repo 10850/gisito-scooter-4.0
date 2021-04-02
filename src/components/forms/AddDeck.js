@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { db } from "../../firebase/firebase";
-import useStorage from "../../firebase/useStorage";
+import { db, productStorage } from "../../firebase/firebase";
 import "../forms/addproduct.css";
 
 const AddDeck = () => {
     const [deckData, setDeckData] = useState([])
-    const [file, setFile] = useState([])
+    const [files, setFiles] = useState([])
     const [error, setError] = useState(null)
-    const { url } = useStorage(file);
-    
+
 
     const dataChange = (e) => {
         if (e.target.type === "number") {
@@ -17,44 +15,39 @@ const AddDeck = () => {
               [e.target.name]: parseInt(e.target.value)
             }) 
         } else {
-            setDeckData({...deckData, [e.target.name]: e.target.value})
+            setDeckData([...deckData, {[e.target.name]: e.target.value}])
         }
     }
 
-    const brandChange = async (e) => {
-        let selectedBrand = e.target.files[0];
-        let name = e.target.name;
+    const handleFile = (event) => {
+        const target = event.target;
+        const value = target.files[0];
+        const name = target.name;
 
-        if (selectedBrand) {
-          await setFile({...file, [name]: selectedBrand});
-          setFile({...file, [name]: url})
-          console.log(file)
-          setError('');
-        } 
-        
-    };
+        console.log(value);
 
-    const productChange = async (e) => {
-        let selectedProduct = e.target.files[0];
-        let name = e.target.name;
+        const storageRef = productStorage.ref(value.name);
 
-        if (selectedProduct) {
-          await setFile({...file, [name]: selectedProduct});
-          setFile({...file, [name]: url})
-          console.log(file)
-          setError('');
-        }
-    };
+        storageRef.put(value).on('state_changed', (snap) => {
+            console.log(snap)
+        }, (err) => {
+            console.log(err)
+        }, async () => {
+            const url = await storageRef.getDownloadURL();
+            console.log(url)
+            setFiles([...files, {[name]: url}])
+            console.log(files)
+        });
+    }
 
 
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(file)
         
         db.collection("decks").add({
             deckData,
-            file
+            files
         })
     }
 
@@ -68,12 +61,12 @@ const AddDeck = () => {
                 <label>
                     Kategori
                 </label>
-                <input name="category" type="text" placeholder="bars" onChange={dataChange} />
+                <input name="category" type="text" placeholder="decks" onChange={dataChange} />
 
                 <label>
                     Brand logo
                 </label>
-                <input name="brand" type="file" onChange={brandChange} />
+                <input name="brand" type="file" onChange={handleFile} />
 
                 <label>
                     Produktnavn
@@ -88,7 +81,7 @@ const AddDeck = () => {
                 <label>
                     Produktbilled
                 </label>
-                <input name="product_img" type="file" onChange={productChange} />
+                <input name="product_img" type="file" onChange={handleFile} />
 
                 <label>
                     Beskrivelse
