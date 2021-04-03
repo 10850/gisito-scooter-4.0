@@ -56,90 +56,90 @@ const AddBar = () => {
             <h3>
                 Tilføj Bar
             </h3>
-            <form className="product-form">
+            <form className="product-form" onSubmit={handleSubmit} >
                 <label>
                     Kategori
                 </label>
-                <input name="category" type="text" placeholder="bars" />
+                <input name="category" type="text" placeholder="bars" onChange={dataChange} />
 
                 <label>
                     Brand logo
                 </label>
-                <input name="brand" type="file" />
+                <input name="brand" type="file" onChange={handleFile} />
 
                 <label>
                     Produktnavn
                 </label>
-                <input name="product_name" type="text" />
+                <input name="product_name" type="text" onChange={dataChange} />
 
                 <label>
                     Pris
                 </label>
-                <input name="price" type="number" step="any" />
+                <input name="price" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Produktbilled
                 </label>
-                <input name="product_img" type="file" />
+                <input name="product_img" type="file" onChange={handleFile} />
 
                 <label>
                     Beskrivelse
                 </label>
-                <textarea name="description" className="description">
+                <textarea name="description" className="description" onChange={dataChange}>
 
                 </textarea>
 
                 <label>
                     Tech features
                 </label>
-                <textarea name="tech_feature" className="tech-feature">
+                <textarea name="tech_feature" className="tech-feature" onChange={dataChange} >
                     
                 </textarea>
 
                 <label>
                     Bar bredde
                 </label>
-                <input name="bar_width" type="number" step="any" />
+                <input name="bar_width" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Bar højde
                 </label>
-                <input name="bar_height" type="number" step="any" />
+                <input name="bar_height" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Kompatibel med
                 </label>
-                <input name="compatibility" type="text" />
+                <input name="compatibility" type="text" onChange={dataChange} />
 
                 <label>
                     Bar materiale
                 </label>
-                <input name="bar_material" type="text" />
+                <input name="bar_material" type="text" onChange={dataChange} />
 
                 <label>
                     Vægt
                 </label>
-                <input name="weight" type="number" step="any" />
+                <input name="weight" type="number" step="any" onChange={dataChange} />
                     
                 <label>
                     Bar ydre diameter
                 </label>
-                <input name="bar_outer_diameter" type="number" step="any" />
+                <input name="bar_outer_diameter" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Bar indre diameter
                 </label>
-                <input name="bar_inner_diameter" type="number" step="any" />
+                <input name="bar_inner_diameter" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Bar Form
                 </label>
-                <input name="bar_form" type="text" />
+                <input name="bar_form" type="text" onChange={dataChange} />
 
                 <label>
                     SCS Ready?
                 </label>
-                <input name="scs_ready" type="text" />
+                <input name="scs_ready" type="text" onChange={dataChange} />
 
                 <button>
                     Tilføj
