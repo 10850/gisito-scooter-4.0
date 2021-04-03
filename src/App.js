@@ -3,6 +3,7 @@ import AuthProvider from './components/auth/AuthContext';
 import LogInd from './components/auth/LogInd';
 import Opret from './components/auth/Opret';
 import Profil from './components/auth/Profil';
+import AddProduct from './components/forms/AddProduct';
 import Home from "./components/home/Home";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
@@ -27,6 +28,9 @@ function App() {
                     </Route>
                     <Route exact path="/profil">
                         <Profil />
+                    </Route>
+                    <Route exact path="/add-product">
+                        <AddProduct />
                     </Route>
                 </Switch>
             </div>
