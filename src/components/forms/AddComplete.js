@@ -3,9 +3,8 @@ import { db, productStorage } from "../../firebase/firebase";
 import "../forms/addproduct.css";
 
 const AddComplete = () => {
-    const [completeData, setCompleteData] = useState([])
-    const [files, setFiles] = useState([])
     const [error, setError] = useState(null)
+    const [data, setData] = useState([])
 
 
     const dataChange = (e) => {
@@ -15,9 +14,9 @@ const AddComplete = () => {
         const number = target.type;
 
         if (number === "number") {
-            setCompleteData({...completeData, [name]: Number(value)})
+            setData({...data, [name]: Number(value)})
         } else {
-            setCompleteData({...completeData, [name]: value})
+            setData({...data, [name]: value})
         }
     }
 
@@ -37,8 +36,7 @@ const AddComplete = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles({...files, [name]: url})
-            console.log(files)
+            setData({...data, [name]: url})
         });
     }
 
@@ -48,8 +46,7 @@ const AddComplete = () => {
         e.preventDefault();
         
         db.collection("completes").add({
-            completeData,
-            files
+            data
         })
     }
 
