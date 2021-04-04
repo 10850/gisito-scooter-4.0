@@ -9,14 +9,16 @@ const AddDeck = () => {
 
 
     const dataChange = (e) => {
-        if (e.target.type === "number") {
-            console.log("number")
-            setDeckData({
-              [e.target.name]: parseInt(e.target.value)
-            }) 
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        const number = target.type;
+
+        if (number === "number") {
+            setDeckData({...deckData, [name]: Number(value)})
         } else {
-            setDeckData([...deckData, {[e.target.name]: e.target.value}])
-        }
+            setDeckData({...deckData, [name]: value})
+        }  
     }
 
     const handleFile = (event) => {
@@ -35,7 +37,7 @@ const AddDeck = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles([...files, {[name]: url}])
+            setFiles({...files, [name]: url})
             console.log(files)
         });
     }

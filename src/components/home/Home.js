@@ -1,7 +1,12 @@
+import "../home/home.css";
+import HeroImage from "./HeroImage";
+import Top3 from "./Top3";
+
 const Home = () => {
     return (
-        <div>
-            <h1>HEJ</h1>
+        <div className="home-container">
+            <HeroImage />
+            <Top3 />
         </div>
     )
 }

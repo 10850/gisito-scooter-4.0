@@ -9,13 +9,15 @@ const AddBar = () => {
 
 
     const dataChange = (e) => {
-        if (e.target.type === "number") {
-            console.log("number")
-            setBarData({
-              [e.target.name]: parseInt(e.target.value)
-            }) 
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        const number = target.type;
+
+        if (number === "number") {
+            setBarData({...barData, [name]: Number(value)})
         } else {
-            setBarData([...barData, {[e.target.name]: e.target.value}])
+            setBarData({...barData, [name]: value})
         }
     }
 
@@ -35,7 +37,7 @@ const AddBar = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles([...files, {[name]: url}])
+            setFiles({...files, [name]: url})
             console.log(files)
         });
     }
