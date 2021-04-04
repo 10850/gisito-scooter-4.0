@@ -9,13 +9,15 @@ const AddWheel = () => {
 
 
     const dataChange = (e) => {
-        if (e.target.type === "number") {
-            console.log("number")
-            setWheelData({
-              [e.target.name]: parseInt(e.target.value)
-            }) 
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        const number = target.type;
+
+        if (number === "number") {
+            setWheelData({...wheelData, [name]: Number(value)})
         } else {
-            setWheelData([...wheelData, {[e.target.name]: e.target.value}])
+            setWheelData({...wheelData, [name]: value})
         }
     }
 
@@ -35,7 +37,7 @@ const AddWheel = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles([...files, {[name]: url}])
+            setFiles({...files, [name]: url})
             console.log(files)
         });
     }

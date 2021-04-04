@@ -9,13 +9,15 @@ const AddComplete = () => {
 
 
     const dataChange = (e) => {
-        if (e.target.type === "number") {
-            console.log("number")
-            setCompleteData({
-              [e.target.name]: parseInt(e.target.value)
-            }) 
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        const number = target.type;
+
+        if (number === "number") {
+            setCompleteData({...completeData, [name]: Number(value)})
         } else {
-            setCompleteData([...completeData, {[e.target.name]: e.target.value}])
+            setCompleteData({...completeData, [name]: value})
         }
     }
 
@@ -35,7 +37,7 @@ const AddComplete = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles([...files, {[name]: url}])
+            setFiles({...files, [name]: url})
             console.log(files)
         });
     }
