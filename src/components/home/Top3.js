@@ -15,8 +15,9 @@ const Top3 = () => {
                 <div></div>
                 <ul>
                     {completes.slice(0,3).map((complete) => (
-                        <Link to={`/produkt/${complete.completeData.category}/${complete.id}`}>
+                        
                             <li key={complete.id}>
+                                <Link to={`/produkt/${complete.completeData.category}/${complete.id}`}>
                                 <img src={complete.files.product_img} />
                                 <h3>
                                     {complete.completeData.product_name}
@@ -24,8 +25,9 @@ const Top3 = () => {
                                 <p>
                                     {complete.completeData.price + " kr"}
                                 </p>
+                                </Link>
                             </li>
-                        </Link>
+                        
                     ))
 
                     }
@@ -38,8 +40,9 @@ const Top3 = () => {
                 <div></div>
                 <ul>
                     {decks.slice(0,3).map((deck) => (
-                        <Link to={`/produkt/${deck.deckData.category}/${deck.id}`}>
+                        
                             <li key={deck.id}>
+                                <Link to={`/produkt/${deck.deckData.category}/${deck.id}`}>
                                 <img src={deck.files.product_img} />
                                 <h3>
                                     {deck.deckData.product_name}
@@ -47,8 +50,8 @@ const Top3 = () => {
                                 <p>
                                     {deck.deckData.price + " kr"}
                                 </p>
+                                </Link>
                             </li>
-                        </Link>
                     ))
                         
                     }
@@ -61,8 +64,9 @@ const Top3 = () => {
                 <div></div>
                 <ul>
                     {wheels.slice(0,3).map((wheel) => (
-                        <Link to={`/produkt/${wheel.wheelData.category}/${wheel.id}`}>
+                        
                             <li key={wheel.id}>
+                                <Link to={`/produkt/${wheel.wheelData.category}/${wheel.id}`}>
                                 <img src={wheel.files.product_img} />
                                 <h3>
                                     {wheel.wheelData.product_name}
@@ -70,8 +74,9 @@ const Top3 = () => {
                                 <p>
                                     {wheel.wheelData.price + " kr"}
                                 </p>
+                                </Link>
                             </li>
-                        </Link>
+                       
                     ))
                         
                     }
@@ -84,8 +89,9 @@ const Top3 = () => {
                 <div></div>
                 <ul>
                     {bars.slice(0,3).map((bar) => (
-                        <Link to={`/produkt/${bar.barData.category}/${bar.id}`}>
+                        
                             <li key={bar.id}>
+                                <Link to={`/produkt/${bar.barData.category}/${bar.id}`}>
                                 <img src={bar.files.product_img} />
                                 <h3>
                                     {bar.barData.product_name}
@@ -93,8 +99,9 @@ const Top3 = () => {
                                 <p>
                                     {bar.barData.price + " kr"}
                                 </p>
+                                </Link>
                             </li>
-                        </Link>
+                        
                     ))
                         
                     }
