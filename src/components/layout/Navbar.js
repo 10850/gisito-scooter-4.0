@@ -64,14 +64,16 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li>
-                        Kurv
+                        <Link to="/kurv">
+                            Kurv
+                        </Link>
                     </li>
                 </ul>
             </div>
             <input id="searchbar" type="text" placeholder="Search.."></input>
             <div className={menuOpen ? 'mobil-menu-container-active' : 'mobil-menu-container'}>
                 <ul id="menu-liste">
-                    <li className="nav-link" onClick={width < 768 && handleBurgermenu}>
+                    <li className="nav-link" onClick={width < 768 ? handleBurgermenu : undefined}>
                         <Link to="/komplette">
                             Komplette
                         </Link>
@@ -79,17 +81,17 @@ const Navbar = () => {
                     <li className="nav-link" id="dropdown-opener-link" onClick={handleDropdown}>
                             Dele
                         <ul className={dropdown ? 'dropdown-list-active' : 'dropdown-list'}>
-                            <li className="dropdown-link" onClick={width < 768 && handleBurgermenu}>
+                            <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
                                 <Link to="/bars">
                                     Bars
                                 </Link>
                             </li>
-                            <li className="dropdown-link" onClick={width < 768 && handleBurgermenu}>
+                            <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
                                 <Link to="/decks">
                                     Decks
                                 </Link>
                             </li>
-                            <li className="dropdown-link" onClick={width < 768 && handleBurgermenu}>
+                            <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
                                 <Link to="/hjul">
                                     Hjul
                                 </Link>

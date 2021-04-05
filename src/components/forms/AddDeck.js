@@ -3,9 +3,8 @@ import { db, productStorage } from "../../firebase/firebase";
 import "../forms/addproduct.css";
 
 const AddDeck = () => {
-    const [deckData, setDeckData] = useState([])
-    const [files, setFiles] = useState([])
     const [error, setError] = useState(null)
+    const [data, setData] = useState([])
 
 
     const dataChange = (e) => {
@@ -15,9 +14,9 @@ const AddDeck = () => {
         const number = target.type;
 
         if (number === "number") {
-            setDeckData({...deckData, [name]: Number(value)})
+            setData({...data, [name]: Number(value)})
         } else {
-            setDeckData({...deckData, [name]: value})
+            setData({...data, [name]: value})
         }  
     }
 
@@ -37,8 +36,7 @@ const AddDeck = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles({...files, [name]: url})
-            console.log(files)
+            setData({...data, [name]: url})
         });
     }
 
@@ -47,10 +45,7 @@ const AddDeck = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        db.collection("decks").add({
-            deckData,
-            files
-        })
+        db.collection("decks").add(data)
     }
 
 
@@ -107,7 +102,7 @@ const AddDeck = () => {
                 <label>
                     Deck Længde
                 </label>
-                <input name="deck_width" type="number" step="any" onChange={dataChange} />
+                <input name="deck_length" type="number" step="any" onChange={dataChange} />
 
                 <label>
                     Hjuldiameter

@@ -25,7 +25,6 @@ const Opret = () => {
                 setError("")
                 setLoading(true)
                 await signup(emailRef.current.value, passwordRef.current.value, fullNameRef.current.value)
-                await db.collection("users").add({email: emailRef.current.value, fullName: fullNameRef.current.value})
                 history.push("/log-ind")
             } catch {
                 setError("Failed to create an account")
