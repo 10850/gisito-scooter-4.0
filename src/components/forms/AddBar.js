@@ -3,9 +3,8 @@ import { db, productStorage } from "../../firebase/firebase";
 import "../forms/addproduct.css";
 
 const AddBar = () => {
-    const [barData, setBarData] = useState([])
-    const [files, setFiles] = useState([])
     const [error, setError] = useState(null)
+    const [data, setData] = useState([])
 
 
     const dataChange = (e) => {
@@ -15,9 +14,9 @@ const AddBar = () => {
         const number = target.type;
 
         if (number === "number") {
-            setBarData({...barData, [name]: Number(value)})
+            setData({...data, [name]: Number(value)})
         } else {
-            setBarData({...barData, [name]: value})
+            setData({...data, [name]: value})
         }
     }
 
@@ -37,8 +36,7 @@ const AddBar = () => {
         }, async () => {
             const url = await storageRef.getDownloadURL();
             console.log(url)
-            setFiles({...files, [name]: url})
-            console.log(files)
+            setData({...data, [name]: url})
         });
     }
 
@@ -47,10 +45,7 @@ const AddBar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        db.collection("bars").add({
-            barData,
-            files
-        })
+        db.collection("bars").add(data)
     }
 
     return (

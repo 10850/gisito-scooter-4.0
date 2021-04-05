@@ -64,7 +64,9 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li>
-                        Kurv
+                        <Link to="/kurv">
+                            Kurv
+                        </Link>
                     </li>
                 </ul>
             </div>

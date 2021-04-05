@@ -45,9 +45,7 @@ const AddComplete = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        db.collection("completes").add({
-            data
-        })
+        db.collection("completes").add(data)
     }
 
     return (
