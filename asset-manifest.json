@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/gisito-scooter-4.0/static/css/main.090b73d0.chunk.css",
+    "main.js": "/gisito-scooter-4.0/static/js/main.c56047b5.chunk.js",
+    "main.js.map": "/gisito-scooter-4.0/static/js/main.c56047b5.chunk.js.map",
+    "runtime-main.js": "/gisito-scooter-4.0/static/js/runtime-main.e2dea1fe.js",
+    "runtime-main.js.map": "/gisito-scooter-4.0/static/js/runtime-main.e2dea1fe.js.map",
+    "static/js/2.f3b671c3.chunk.js": "/gisito-scooter-4.0/static/js/2.f3b671c3.chunk.js",
+    "static/js/2.f3b671c3.chunk.js.map": "/gisito-scooter-4.0/static/js/2.f3b671c3.chunk.js.map",
+    "static/js/3.2d1a7c21.chunk.js": "/gisito-scooter-4.0/static/js/3.2d1a7c21.chunk.js",
+    "static/js/3.2d1a7c21.chunk.js.map": "/gisito-scooter-4.0/static/js/3.2d1a7c21.chunk.js.map",
+    "index.html": "/gisito-scooter-4.0/index.html",
+    "static/css/main.090b73d0.chunk.css.map": "/gisito-scooter-4.0/static/css/main.090b73d0.chunk.css.map",
+    "static/js/2.f3b671c3.chunk.js.LICENSE.txt": "/gisito-scooter-4.0/static/js/2.f3b671c3.chunk.js.LICENSE.txt",
+    "static/media/hero-image-small.f4a27a03.jpg": "/gisito-scooter-4.0/static/media/hero-image-small.f4a27a03.jpg",
+    "static/media/hero-image.fd8fe7ae.jpg": "/gisito-scooter-4.0/static/media/hero-image.fd8fe7ae.jpg",
+    "static/media/logo.baa9a724.svg": "/gisito-scooter-4.0/static/media/logo.baa9a724.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e2dea1fe.js",
+    "static/js/2.f3b671c3.chunk.js",
+    "static/css/main.090b73d0.chunk.css",
+    "static/js/main.c56047b5.chunk.js"
+  ]
+}
