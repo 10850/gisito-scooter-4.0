@@ -24,7 +24,7 @@ const Navbar = () => {
     }, [width]);
 
     useEffect(() => {
-        width < 768 && handleBurgermenu();
+        width < 768 + "px" && handleBurgermenu();
     },[width]);
 
 

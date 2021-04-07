@@ -1,0 +1,124 @@
+.cart-container {
+    max-width: 100%;
+    margin: 0 1em;
+    
+}
+
+.buynow-btn-cart {
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+}
+
+.cart-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-item .cart-item-img {
+    grid-area: item-img;
+    width: 100px;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding-right: 1em;
+}
+
+.cart-item .cart-item-name {
+    grid-area: item-name;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.cart-item .cart-item-price {
+    grid-area: price;
+    margin-bottom: auto;
+}
+
+.cart-item .remove-item-btn {
+    grid-area: remove-btn;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cart-item .remove-item-btn:active {
+    color: red;
+}
+
+.cart-item {
+    margin-right: auto;
+    margin-left: auto;
+    width: 300px;
+    margin-bottom: 4em;
+    padding: 10px;
+    border: 2px solid #1c44659a;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: 0fr 1fr 0fr;
+    grid-template-areas: "item-img item-name remove-btn"
+                          "item-img price remove-btn";
+}
+
+@media only screen and (min-width: 768px) {
+    .cart-container {
+        max-width: 100%;
+        margin: 0 2em;
+        
+    }
+    
+    .cart-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .cart-item .cart-item-img {
+        grid-area: item-img;
+        width: 100px;
+        margin-bottom: auto;
+        margin-top: auto;
+        padding-right: 1em;
+    }
+    
+    .cart-item .cart-item-name {
+        grid-area: item-name;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .cart-item .cart-item-price {
+        grid-area: price;
+        margin-bottom: auto;
+    }
+    
+    .cart-item .remove-item-btn {
+        grid-area: remove-btn;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .cart-item .remove-item-btn:active {
+        color: red;
+    }
+    
+    .cart-item {
+        margin-right: auto;
+        margin-left: auto;
+        width: 500px;
+        max-width: 100%;
+        margin-bottom: 4em;
+        padding: 10px;
+        border: 2px solid #1c44659a;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+        display: grid;
+        grid-template-columns: 0fr 1fr 0fr;
+        grid-template-areas: "item-img item-name remove-btn"
+                              "item-img price remove-btn";
+    }
+}

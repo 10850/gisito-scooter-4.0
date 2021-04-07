@@ -5,6 +5,10 @@
 }
 
 /* MOBIL */
+#global-menu {
+    max-width: 100%;
+}
+
 nav {
     max-width: 100%;
 }
@@ -78,10 +82,10 @@ nav ul {
     transition: all 0.5s ease;
     background-color:#00A14B;
     height: 100vh;
-    width: 80%;
+    width: 60%;
     z-index: 99;
-    position: absolute;
-    margin-top: 50px;
+    position: fixed;
+    margin-top: 53px;
     margin-left: -7px;
     margin-right: -7px;
 

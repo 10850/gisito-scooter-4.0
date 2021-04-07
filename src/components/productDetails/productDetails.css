@@ -3,6 +3,7 @@
     grid-area: image;
     margin-right: auto;
     margin-left: auto;
+    width: 300px;
 }
 
 .brand-logo {
@@ -107,6 +108,7 @@
         margin-left: auto;
         margin-top: auto;
         margin-bottom: auto;
+        width: 300px;
     }
     
     .brand-logo {

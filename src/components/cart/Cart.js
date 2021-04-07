@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext';
 import { CartContext } from './CartContext';
+import "./cart.css"
 
 const Cart = () => {
     const { currentUser } = useAuth();
@@ -21,18 +22,28 @@ const Cart = () => {
     
 
     return (
-        <div>
+        <div className="cart-container">
+            <h1>Kurv</h1>
             {currentUser &&
-            <div>
-                <h1>Kurv</h1>
+            <div className="cart-content">
+                
                 {list.map((item) => (
-                    <div key={item.id} >
-                        {item.product_name}
-                        <span name={item.id}  onClick={handleRemoveItem} >X</span>
+                    <div className="cart-item" key={item.id} >
+                        <img className="cart-item-img" src={item.product_img} />
+                        <h4 className="cart-item-name">
+                            {item.product_name}
+                        </h4>
+                        <p className="cart-item-price">
+                            {item.price + " kr"}
+                        </p>
+                        <div className="remove-item-btn" name={item.id}  onClick={handleRemoveItem} >X</div>
                     </div>
                 ))
 
                 }
+                <button className="buynow-btn-cart">
+                    Betaling
+                </button>
             </div>
             }
             {!currentUser &&
