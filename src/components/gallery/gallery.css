@@ -1,9 +1,14 @@
 /* MOBIL */
+.gallery-component-container {
+    max-width: 100%;
+}
+
 .gallery-section ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
+    max-width: 100%;
 }
 
 
