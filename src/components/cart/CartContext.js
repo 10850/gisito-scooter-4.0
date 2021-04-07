@@ -8,10 +8,12 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
     const [shoppingCart, setShoppingCart] = useState([])
-    
-    function addToCart(id, category, product_name, product_img, price) {
-        return firebase.auth().onAuthStateChanged((user) => {
-            return db.collection("users").doc(user.uid).collection("shoppingCart").doc(id).set(
+    const [loading, setLoading] = useState(true)
+    const { userUid } = useAuth();
+
+    const addToCart = async (id, category, product_name, product_img, price) => {
+        console.log("start add")
+             await db.collection("users").doc(userUid).collection("shoppingCart").doc(id).set(
                     {
                         id: id,
                         category: category,
@@ -20,27 +22,54 @@ const CartContextProvider = ({children}) => {
                         price: price
                     
                     })
-        })
+                    .then(async()=> {
+                        setLoading(false)
+                    })
+        console.log("slut add")
+
     }
 
-    useEffect(async () => {
-        firebase.auth().onAuthStateChanged( async (user) => {
-            const userCollection = await db.collection("users").doc(user.uid).collection("shoppingCart").get()
-            const userCart = userCollection.docs.map((doc) => ({id: doc.id, ...doc.data()}))
-            setShoppingCart(userCart)
-        })
-            console.log(shoppingCart)         
-    }, [])
+    const removeFromCart = async (id) => {
+        console.log("start delete")
+            
+            db.collection("users").doc(userUid).collection("shoppingCart").doc(id).delete(id)
+            .then(()=>{
+                console.log("Document successfully deleted!");
+                setLoading(false)
+            })
+        console.log("slut delete");
+    }
 
+    const updateCart = async (user) => {
+            console.log("start update")
+            const collection = await db.collection("users").doc(user).collection("shoppingCart").get()
+            const cart = collection.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+            console.log("slut update")
 
+            return cart;
+                
+    }
+
+    useEffect(async() => {
+        console.log("start useEffect")
+        console.log(userUid)
+        setShoppingCart(await updateCart(userUid))
+        console.log("slut useEffect") 
+        console.log(shoppingCart)
+        setLoading(true)  
+    },[loading])
+    
+   
     const value = {
         addToCart,
-        shoppingCart
+        removeFromCart,
+        shoppingCart,
+        setShoppingCart
     }
 
     return (
         <CartContext.Provider value={value}>
-            {children}
+            {loading && children}
         </CartContext.Provider>
     )
 
