@@ -12,6 +12,7 @@ const ProductsContextProvider = ({ children }) => {
     const getCollectionData = async (collectionName) => {
         const collection = await db.collection(collectionName).get()
         const products = collection.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+
         return products;
         
     }
@@ -21,6 +22,7 @@ const ProductsContextProvider = ({ children }) => {
         setDecks(await getCollectionData("decks"))
         setBars(await getCollectionData("bars"))
         setWheels(await getCollectionData("wheels"))
+        console.log("slut")
     }, [])
 
     return (

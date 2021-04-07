@@ -82,17 +82,17 @@ const Navbar = () => {
                             Dele
                         <ul className={dropdown ? 'dropdown-list-active' : 'dropdown-list'}>
                             <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
-                                <Link to="/bars">
+                                <Link to="/dele/bars">
                                     Bars
                                 </Link>
                             </li>
                             <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
-                                <Link to="/decks">
+                                <Link to="/dele/decks">
                                     Decks
                                 </Link>
                             </li>
                             <li className="dropdown-link" onClick={width < 768 ? handleBurgermenu : undefined}>
-                                <Link to="/hjul">
+                                <Link to="/dele/hjul">
                                     Hjul
                                 </Link>
                             </li>
