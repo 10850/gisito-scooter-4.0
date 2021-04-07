@@ -6,6 +6,11 @@ import Profil from './components/auth/Profil';
 import  Cart  from './components/cart/Cart';
 import CartContextProvider from './components/cart/CartContext';
 import AddProduct from './components/forms/AddProduct';
+import BarsGallery from './components/gallery/BarsGallery';
+import CompleteGallery from './components/gallery/CompletesGallery';
+import DecksGallery from './components/gallery/DecksGallery';
+import DeleGallery from './components/gallery/DeleGallery';
+import WheelsGallery from './components/gallery/WheelsGallery';
 import Home from "./components/home/Home";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
@@ -37,6 +42,21 @@ function App() {
                         </Route>
                         <Route exact path="/add-product">
                             <AddProduct />
+                        </Route>
+                        <Route exact path="/komplette">
+                            <CompleteGallery />
+                        </Route>
+                        <Route exact path="/dele/bars">
+                            <DeleGallery />
+                            <BarsGallery />
+                        </Route>
+                        <Route exact path="/dele/decks">
+                            <DeleGallery />
+                            <DecksGallery />
+                        </Route>
+                        <Route exact path="/dele/hjul">
+                            <DeleGallery />
+                            <WheelsGallery />
                         </Route>
                         <Route exact path="/produkt/:category/:id">
                             <ProductDetails />
