@@ -9,11 +9,11 @@ export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
     const [shoppingCart, setShoppingCart] = useState([])
     const [loading, setLoading] = useState(true)
-    const { userUid } = useAuth();
+    const { userUid, currentUser } = useAuth();
 
     const addToCart = async (id, category, product_name, product_img, price) => {
         console.log("start add")
-             await db.collection("users").doc(userUid).collection("shoppingCart").doc(id).set(
+             await db.collection("users").doc(userUid.uid).collection("shoppingCart").doc(id).set(
                     {
                         id: id,
                         category: category,
@@ -32,7 +32,7 @@ const CartContextProvider = ({children}) => {
     const removeFromCart = async (id) => {
         console.log("start delete")
             
-            db.collection("users").doc(userUid).collection("shoppingCart").doc(id).delete(id)
+            db.collection("users").doc(userUid.uid).collection("shoppingCart").doc(id).delete(id)
             .then(()=>{
                 console.log("Document successfully deleted!");
                 setLoading(false)
@@ -44,6 +44,7 @@ const CartContextProvider = ({children}) => {
             console.log("start update")
             const collection = await db.collection("users").doc(user).collection("shoppingCart").get()
             const cart = collection.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+            console.log(cart)
             console.log("slut update")
 
             return cart;
@@ -53,9 +54,9 @@ const CartContextProvider = ({children}) => {
     useEffect(async() => {
         console.log("start useEffect")
         console.log(userUid)
-        setShoppingCart(await updateCart(userUid))
-        console.log("slut useEffect") 
+        setShoppingCart(await updateCart(userUid.uid))
         console.log(shoppingCart)
+        console.log("slut useEffect") 
         setLoading(true)  
     },[loading])
     

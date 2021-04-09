@@ -7,10 +7,12 @@
 /* MOBIL */
 #hero-image {
     max-width: 100%;
+    overflow: hidden;
 }
 
 #hero-image img {
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 .home-container {
@@ -76,7 +78,6 @@
     width: 80%;
     height: 1px;
     background-color: #6d6d6d;
-    justify-self: center;
     margin-right: auto;
     margin-left: auto;
 }
@@ -93,13 +94,10 @@
 .top3-bars ul,
 .top3-wheels ul {
     list-style: none;
-    display: flex;
-    justify-content: space-around;
-    justify-content: center;
-    justify-items: center;
+    display: inline-flex;
     max-width: 100%;
     margin-right: auto;
-    margin-left: 0;
+    margin-left: auto;
 }
 
 .top3-completes ul li,
@@ -107,7 +105,6 @@
 .top3-bars ul li,
 .top3-wheels ul li {
     margin-right: 15px;
-    margin-left: 15px;
     
 }
 
@@ -188,18 +185,6 @@
     
     .top3-wheels {
         grid-area: top3wheels;
-    }
-    
-    .top3-section {
-        margin-top: 1em;
-        display: grid;
-        max-width: 100%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-                            "top3completes"
-                            "top3bars"
-                            "top3decks"
-                            "top3wheels";   
     }
     
     .top3-completes,
@@ -304,6 +289,7 @@
     }
 
     .top3-section {
+        margin-top: 1em;
         display: grid;
         max-width: 100%;
         grid-template-columns: 1fr 1fr;

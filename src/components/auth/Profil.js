@@ -5,19 +5,20 @@ import { useAuth } from "../auth/AuthContext"
 
 const Profil = () => {
     const [userData, setUserData] = useState([]);
-    const { currentUser } = useAuth();
+    const { currentUser, login } = useAuth();
+    console.log(currentUser.email)
 
     useEffect(async() => {
         db.collection("users").where("email", "==", currentUser.email)
         .get()
         .then(async (querySnapshot) => {
             let document = []
-            await querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc) => {
                 document.push({...doc.data(), id: doc.id});
                 // doc.data() is never undefined for query doc snapshots
                 console.log(document);
             });
-            await setUserData(document)
+            setUserData(document)
             console.log(userData)
         })
         .catch((error) => {

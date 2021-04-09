@@ -7,6 +7,7 @@
 /* MOBIL */
 #global-menu {
     max-width: 100%;
+    overflow: hidden;
 }
 
 nav {
@@ -26,7 +27,7 @@ nav ul {
 }
 
 #nav-logo {
-    max-width: 300px;
+    max-width: 100%;
     margin: auto;
 }
 

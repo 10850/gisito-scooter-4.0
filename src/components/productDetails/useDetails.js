@@ -6,8 +6,10 @@ const useDetails = () => {
     const { category, id } = useParams()
     const { completes, decks, wheels, bars } = useContext(ProductsContext)
     const [details, setDetails] = useState({});
-
+    console.log(category)
     useEffect( async () => {
+        console.log(category)
+        console.log(id)
         if (category === "komplette") {
             const product = await completes.find((complete)=> complete.id === id);
             console.log(product)
@@ -35,7 +37,7 @@ const useDetails = () => {
             await setDetails(product)
             console.log(details)
         } 
-    },[id])
+    },[])
 
         return details;
     
